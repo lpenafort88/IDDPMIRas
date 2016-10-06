@@ -196,6 +196,7 @@
     <Compile Include="App_Start\RouteConfig.cs" />
     <Compile Include="App_Start\Startup.Auth.cs" />
     <Compile Include="Controllers\AccountController.cs" />
+    <Compile Include="Controllers\ErrorController.cs" />
     <Compile Include="Controllers\HomeController.cs" />
     <Compile Include="Controllers\ManageController.cs" />
     <Compile Include="Global.asax.cs">
@@ -427,6 +428,7 @@
     <Content Include="video\bg-video-1-xlg.mp4" />
     <Content Include="video\bg-video-1-xs.jpg" />
     <Content Include="video\bg-video-1-xs.mp4" />
+    <Content Include="Views\Shared\404.html" />
     <Content Include="Views\Shared\index.html" />
     <Content Include="Web.config">
       <SubType>Designer</SubType>
@@ -490,7 +492,7 @@
     <Content Include="Views\Home\Sections\_Trusted.cshtml" />
     <Content Include="Views\Shared\_Navigation.cshtml" />
     <Content Include="Views\Shared\_Footer.cshtml" />
-    <Content Include="Views\Errors\404.cshtml" />
+    <Content Include="Views\Shared\404.cshtml" />
     <Content Include="Views\Shared\_LayoutMinimal.cshtml" />
   </ItemGroup>
   <ItemGroup>
