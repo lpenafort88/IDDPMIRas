@@ -45,7 +45,7 @@ namespace IDDPMIRas.Sample
             evento3.Imagen = imagesPath + evento3.NombreDocumento;
             
             evento3.Documento = docPath + evento3.NombreDocumento;
-            eventos.Add(evento2);
+            eventos.Add(evento3);
 
             EventoViewModel evento4 = new EventoViewModel();
             evento4.Dia = "3";
