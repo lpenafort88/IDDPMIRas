@@ -70,7 +70,7 @@ namespace Resources {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to Batesbur-Leesville, SC 29006.
+        ///   Looks up a localized string similar to Batesburg-Leesville, SC 29006.
         /// </summary>
         public static string Address2 {
             get {
