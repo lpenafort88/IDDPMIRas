@@ -3,6 +3,8 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Web;
 using System.Web.Mvc;
+using IDDPMIRas.Models;
+using IDDPMIRas.Sample;
 
 namespace IDDPMIRas.Controllers
 {
@@ -10,7 +12,9 @@ namespace IDDPMIRas.Controllers
     {
         public ActionResult Index()
         {
-            return View();
+            HomeViewModel hvm = new HomeViewModel();
+            hvm.Eventos = CalendarioSampleData.getEventos();
+            return View(hvm);
         }
 
         public ActionResult About()

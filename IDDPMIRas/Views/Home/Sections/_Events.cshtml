@@ -1,15 +1,16 @@
-﻿ <!-- Events-->
+﻿@model IDDPMIRas.Models.HomeViewModel
+<!-- Events-->
 <section class="bg-catskill">
     <div class="shell-wide section-70 section-md-114">
         <h2 class="text-bold">Eventos</h2>
         <hr class="divider bg-madison">
         <div class="range offset-top-60 range-xs-center">
-            <div class="cell-sm-6 cell-md-5 cell-xl-3">
+            @*<div class="cell-sm-6 cell-md-5 cell-xl-3">
                 <article class="post-event">
                     <div class="post-event-img-overlay">
                         <img src="images/blog/events-01-420x420.png" width="420" height="420" alt="" class="img-responsive">
                         <div class="post-event-overlay context-dark">
-                            @*<a href="#" class="btn btn-primary">Book Now</a>*@
+                            <a href="#" class="btn btn-primary">Book Now</a>
                             <div class="offset-top-20"><a href="#" class="btn btn-default">Ver Mas</a></div>
                         </div>
                     </div>
@@ -30,116 +31,133 @@
                         </div>
                     </div>
                 </article>
-            </div>
-            <div class="cell-sm-6 cell-md-5 cell-xl-3 offset-top-50 offset-sm-top-0">
-                <article class="post-event">
-                    <div class="post-event-img-overlay">
-                        <img src="images/blog/events-02-420x420.png" width="420" height="420" alt="" class="img-responsive">
-                        <div class="post-event-overlay context-dark">
-                            @*<a href="#" class="btn btn-primary">Book Now</a>*@
-                            <div class="offset-top-20"><a href="#" class="btn btn-default">Ver Mas</a></div>
-                        </div>
-                    </div>
-                    <div class="unit unit-lg unit-lg-horizontal">
-                        <div class="unit-left">
-                            <div class="post-event-meta text-center">
-                                <div class="h3 text-bold reveal-inline-block reveal-lg-block">14 y 15</div>
-                                <p class="reveal-inline-block reveal-lg-block">Octubre</p><span class="text-bold reveal-inline-block reveal-lg-block inset-left-10 inset-lg-left-0">TBD</span>
+            </div>*@
+            @{ 
+                int i = 0;
+            }
+        @foreach (var evento in Model.Eventos)
+        {
+            if (i == 0)
+            {
+                @:<div class="cell-sm-6 cell-md-5 cell-xl-3">
+            }
+            else
+            {
+                @:<div class="cell-sm-6 cell-md-5 cell-xl-3 offset-top-50 offset-sm-top-0">
+
+            }
+                        <article class="post-event">
+                            <div class="post-event-img-overlay">
+                                <img src="@evento.Imagen" width="420" height="420" alt="" class="img-responsive">
+                                <div class="post-event-overlay context-dark">
+                                    <a href="@evento.Imagen" download="@evento.NombreDocumento" class="btn btn-primary">Descargue</a>
+                                    <div class="offset-top-20"><a href="#" class="btn btn-default">Ver Mas</a></div>
+                                </div>
                             </div>
-                        </div>
-                        <div class="unit-body">
-                            <div class="post-event-body text-lg-left">
-                                <h6><a href="#">Campamento ASOCHEC</a></h6>
-                                <ul class="list-inline list-inline-xs">
-                                    <li><a href="#"><span class="icon icon-xxs mdi mdi-account-outline text-middle"></span><span class="inset-left-10 text-dark text-middle">White Oak Conference Center</span></a></li>
-                                </ul>
+                            <div class="unit unit-lg unit-lg-horizontal">
+                                <div class="unit-left">
+                                    <div class="post-event-meta text-center">
+                                        <div class="h3 text-bold reveal-inline-block reveal-lg-block">@evento.Dia</div>
+                                        <p class="reveal-inline-block reveal-lg-block">@evento.Mes</p><span class="text-bold reveal-inline-block reveal-lg-block inset-left-10 inset-lg-left-0">@evento.Hora</span>
+                                    </div>
+                                </div>
+                                <div class="unit-body">
+                                    <div class="post-event-body text-lg-left">
+                                        <h6><a href="#">@evento.Nombre</a></h6>
+                                        <ul class="list-inline list-inline-xs">
+                                            <li><a href="#"><span class="icon icon-xxs mdi mdi-account-outline text-middle"></span><span class="inset-left-10 text-dark text-middle">@evento.Local</span></a></li>
+                                        </ul>
+                                    </div>
+                                </div>
                             </div>
+                        </article>
+                @:</div>
+
+                i++;
+                    
+              }
+                    @*<div class="cell-sm-6 cell-md-5 cell-xl-3 offset-top-50 offset-xl-top-0">
+                            <article class="post-event">
+                                <div class="post-event-img-overlay">
+                                    <img src="images/blog/events-04-420x420.jpg" width="420" height="420" alt="" class="img-responsive">
+                                    <div class="post-event-overlay context-dark">
+                                        <a href="#" class="btn btn-primary">Book Now</a>
+                                        <div class="offset-top-20"><a href="#" class="btn btn-default">Ver Mas</a></div>
+                                    </div>
+                                </div>
+                                <div class="unit unit-lg unit-lg-horizontal">
+                                    <div class="unit-left">
+                                        <div class="post-event-meta text-center">
+                                            <div class="h3 text-bold reveal-inline-block reveal-lg-block">4 y 5</div>
+                                            <p class="reveal-inline-block reveal-lg-block">Noviembre</p><span class="text-bold reveal-inline-block reveal-lg-block inset-left-10 inset-lg-left-0">TBD</span>
+                                        </div>
+                                    </div>
+                                    <div class="unit-body">
+                                        <div class="post-event-body text-lg-left">
+                                            <h6><a href="#">Seminario De Capacitacion</a></h6>
+                                            <ul class="list-inline list-inline-xs">
+                                                <li><a href="#"><span class="icon icon-xxs mdi mdi-account-outline text-middle"></span><span class="inset-left-10 text-dark text-middle">TBD</span></a></li>
+                                            </ul>
+                                        </div>
+                                    </div>
+                                </div>
+                            </article>
                         </div>
-                    </div>
-                </article>
-            </div>
-            <div class="cell-sm-6 cell-md-5 cell-xl-3 offset-top-50 offset-xl-top-0">
-                <article class="post-event">
-                    <div class="post-event-img-overlay">
-                        <img src="images/blog/events-04-420x420.jpg" width="420" height="420" alt="" class="img-responsive">
-                        <div class="post-event-overlay context-dark">
-                            @*<a href="#" class="btn btn-primary">Book Now</a>*@
-                            <div class="offset-top-20"><a href="#" class="btn btn-default">Ver Mas</a></div>
+                        <div class="cell-sm-6 cell-md-5 cell-xl-3 offset-top-50 offset-xl-top-0">
+                            <article class="post-event">
+                                <div class="post-event-img-overlay">
+                                    <img src="images/blog/events-01-420x420.jpg" width="420" height="420" alt="" class="img-responsive">
+                                    <div class="post-event-overlay context-dark">
+                                        <a href="#" class="btn btn-primary">Book Now</a>
+                                        <div class="offset-top-20"><a href="#" class="btn btn-default">Ver Mas</a></div>
+                                    </div>
+                                </div>
+                                <div class="unit unit-lg unit-lg-horizontal">
+                                    <div class="unit-left">
+                                        <div class="post-event-meta text-center">
+                                            <div class="h3 text-bold reveal-inline-block reveal-lg-block">3</div>
+                                            <p class="reveal-inline-block reveal-lg-block">Diciembre</p><span class="text-bold reveal-inline-block reveal-lg-block inset-left-10 inset-lg-left-0">TBD</span>
+                                        </div>
+                                    </div>
+                                    <div class="unit-body">
+                                        <div class="post-event-body text-lg-left">
+                                            <h6><a href="#">Agape Ministerial</a></h6>
+                                            <ul class="list-inline list-inline-xs">
+                                                <li><a href="#"><span class="icon icon-xxs mdi mdi-account-outline text-middle"></span><span class="inset-left-10 text-dark text-middle">Por Distrito</span></a></li>
+                                            </ul>
+                                        </div>
+                                    </div>
+                                </div>
+                            </article>
                         </div>
-                    </div>
-                    <div class="unit unit-lg unit-lg-horizontal">
-                        <div class="unit-left">
-                            <div class="post-event-meta text-center">
-                                <div class="h3 text-bold reveal-inline-block reveal-lg-block">4 y 5</div>
-                                <p class="reveal-inline-block reveal-lg-block">Noviembre</p><span class="text-bold reveal-inline-block reveal-lg-block inset-left-10 inset-lg-left-0">TBD</span>
-                            </div>
-                        </div>
-                        <div class="unit-body">
-                            <div class="post-event-body text-lg-left">
-                                <h6><a href="#">Seminario De Capacitacion</a></h6>
-                                <ul class="list-inline list-inline-xs">
-                                    <li><a href="#"><span class="icon icon-xxs mdi mdi-account-outline text-middle"></span><span class="inset-left-10 text-dark text-middle">TBD</span></a></li>
-                                </ul>
-                            </div>
-                        </div>
-                    </div>
-                </article>
-            </div>
-            <div class="cell-sm-6 cell-md-5 cell-xl-3 offset-top-50 offset-xl-top-0">
-                <article class="post-event">
-                    <div class="post-event-img-overlay">
-                        <img src="images/blog/events-01-420x420.jpg" width="420" height="420" alt="" class="img-responsive">
-                        <div class="post-event-overlay context-dark">
-                            @*<a href="#" class="btn btn-primary">Book Now</a>*@
-                            <div class="offset-top-20"><a href="#" class="btn btn-default">Ver Mas</a></div>
-                        </div>
-                    </div>
-                    <div class="unit unit-lg unit-lg-horizontal">
-                        <div class="unit-left">
-                            <div class="post-event-meta text-center">
-                                <div class="h3 text-bold reveal-inline-block reveal-lg-block">3</div>
-                                <p class="reveal-inline-block reveal-lg-block">Diciembre</p><span class="text-bold reveal-inline-block reveal-lg-block inset-left-10 inset-lg-left-0">TBD</span>
-                            </div>
-                        </div>
-                        <div class="unit-body">
-                            <div class="post-event-body text-lg-left">
-                                <h6><a href="#">Agape Ministerial</a></h6>
-                                <ul class="list-inline list-inline-xs">
-                                    <li><a href="#"><span class="icon icon-xxs mdi mdi-account-outline text-middle"></span><span class="inset-left-10 text-dark text-middle">Por Distrito</span></a></li>
-                                </ul>
-                            </div>
-                        </div>
-                    </div>
-                </article>
-            </div>
-            <div class="cell-sm-6 cell-md-5 cell-xl-3 offset-top-50 offset-xl-top-0">
-                <article class="post-event">
-                    <div class="post-event-img-overlay">
-                        <img src="images/blog/events-01-420x420.jpg" width="420" height="420" alt="" class="img-responsive">
-                        <div class="post-event-overlay context-dark">
-                            @*<a href="#" class="btn btn-primary">Book Now</a>*@
-                            <div class="offset-top-20"><a href="#" class="btn btn-default">Ver Mas</a></div>
-                        </div>
-                    </div>
-                    <div class="unit unit-lg unit-lg-horizontal">
-                        <div class="unit-left">
-                            <div class="post-event-meta text-center">
-                                <div class="h3 text-bold reveal-inline-block reveal-lg-block">10</div>
-                                <p class="reveal-inline-block reveal-lg-block">Diciembre</p><span class="text-bold reveal-inline-block reveal-lg-block inset-left-10 inset-lg-left-0">TBD</span>
-                            </div>
-                        </div>
-                        <div class="unit-body">
-                            <div class="post-event-body text-lg-left">
-                                <h6><a href="#">Agape de AJEC</a></h6>
-                                <ul class="list-inline list-inline-xs">
-                                    <li><a href="#"><span class="icon icon-xxs mdi mdi-account-outline text-middle"></span><span class="inset-left-10 text-dark text-middle">TDB</span></a></li>
-                                </ul>
-                            </div>
-                        </div>
-                    </div>
-                </article>
-            </div>
-        </div>
+                        <div class="cell-sm-6 cell-md-5 cell-xl-3 offset-top-50 offset-xl-top-0">
+                            <article class="post-event">
+                                <div class="post-event-img-overlay">
+                                    <img src="images/blog/events-01-420x420.jpg" width="420" height="420" alt="" class="img-responsive">
+                                    <div class="post-event-overlay context-dark">
+                                        <a href="#" class="btn btn-primary">Book Now</a>
+                                        <div class="offset-top-20"><a href="#" class="btn btn-default">Ver Mas</a></div>
+                                    </div>
+                                </div>
+                                <div class="unit unit-lg unit-lg-horizontal">
+                                    <div class="unit-left">
+                                        <div class="post-event-meta text-center">
+                                            <div class="h3 text-bold reveal-inline-block reveal-lg-block">10</div>
+                                            <p class="reveal-inline-block reveal-lg-block">Diciembre</p><span class="text-bold reveal-inline-block reveal-lg-block inset-left-10 inset-lg-left-0">TBD</span>
+                                        </div>
+                                    </div>
+                                    <div class="unit-body">
+                                        <div class="post-event-body text-lg-left">
+                                            <h6><a href="#">Agape de AJEC</a></h6>
+                                            <ul class="list-inline list-inline-xs">
+                                                <li><a href="#"><span class="icon icon-xxs mdi mdi-account-outline text-middle"></span><span class="inset-left-10 text-dark text-middle">TDB</span></a></li>
+                                            </ul>
+                                        </div>
+                                    </div>
+                                </div>
+                            </article>
+                        </div>*@
+                </div>
         <div class="offset-top-50 offset-lg-top-56"><a href="#" class="btn btn-icon btn-icon-right btn-primary"><span class="icon fa-arrow-right"></span><span>Ver Calendario</span></a></div>
     </div>
 </section>

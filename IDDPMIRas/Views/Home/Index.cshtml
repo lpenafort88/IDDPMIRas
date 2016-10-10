@@ -1,4 +1,5 @@
-﻿@{
+﻿@model IDDPMIRas.Models.HomeViewModel
+@{
     ViewBag.Title = "Inicio";
     ViewBag.Message = "Inicio";
 }
@@ -10,7 +11,7 @@
     @*@Html.Partial("~/Views/Home/Sections/_Feature.cshtml")*@
     @*@Html.Partial("~/Views/Home/Sections/_Counters.cshtml")*@
     
-    @Html.Partial("~/Views/Home/Sections/_Events.cshtml")
+    @Html.Partial("~/Views/Home/Sections/_Events.cshtml",Model)
     @*@Html.Partial("~/Views/Home/Sections/_Testimonials.cshtml")*@
     @*@Html.Partial("~/Views/Home/Sections/_LatestNews.cshtml")*@
     @*@Html.Partial("~/Views/Home/Sections/_Gallery.cshtml")*@
